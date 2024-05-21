@@ -42,7 +42,9 @@ def plot_kaplan_meier(data):
 
     fig.update_layout(title='Kaplan-Meier Curve',
                       xaxis_title='Time (months)',
-                      yaxis_title='Survival Probability')
+                      yaxis_title='Survival Probability',
+                      width=600,  # Réduire la largeur de la figure
+                      height=400)  # Réduire la hauteur de la figure
     
     return fig
 
@@ -107,12 +109,6 @@ def homee():
                     survival_probabilities = [fn(time_points) for fn in survival_function]
                     survival_df = pd.DataFrame(survival_probabilities).transpose()
                     survival_df.columns = ['Survival Probability']
-
-                    intervals = np.arange(12, 61, 12)
-                    dfs_probabilities = survival_df.iloc[[int(interval - 1) for interval in intervals if interval <= len(survival_df)]].reset_index(drop=True)
-                    dfs_probabilities.index = [f"{month} months" for month in intervals]
-                    dfs_probabilities = dfs_probabilities.T
-                    st.table(dfs_probabilities)
 
                     data = load_km_data()
                     fig = plot_kaplan_meier(data)
