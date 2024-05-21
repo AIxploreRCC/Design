@@ -25,7 +25,7 @@ def load_model():
 # Charger les données pour tracer la courbe de Kaplan-Meier
 @st.cache
 def load_km_data():
-    df = pd.read_csv("/mnt/data/km_curve_data.csv")
+    df = pd.read_csv("km_curve_data.csv")
     return df
 
 # Charger les données de survie
