@@ -1,4 +1,4 @@
-/* CSS personnalisé pour ajuster la largeur de la page */
+/* Utiliser toute la largeur de la page */
 [data-testid="stAppViewContainer"] {
     max-width: 100%;
     padding: 0;
@@ -6,4 +6,13 @@
 
 [data-testid="stHeader"] {
     display: none;
+}
+
+[data-testid="stSidebar"] {
+    display: none;
+}
+
+main .block-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
