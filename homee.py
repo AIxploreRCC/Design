@@ -15,7 +15,7 @@ def load_model():
     return load(model_path)
 
 # Seuil optimal pour séparer les groupes de risque
-optimal_threshold = 3.38141178443309
+optimal_threshold = 3.038141178443309
 
 # Charger les données pour tracer la courbe de Kaplan-Meier
 @st.cache
