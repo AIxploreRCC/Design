@@ -62,23 +62,28 @@ if choice == "Home":
     # Entrée des variables par l'utilisateur dans des boîtes grises
     with st.sidebar:
         st.markdown('<div class="gray-box">', unsafe_allow_html=True)
-        var1 = st.slider('Variable 1', 0.0, 1.0, 0.5)
+        st.write("Variable 1")
+        var1 = st.slider('', 0.0, 1.0, 0.5)
         st.markdown('</div>', unsafe_allow_html=True)
 
         st.markdown('<div class="gray-box">', unsafe_allow_html=True)
-        var2 = st.slider('Variable 2', 0.0, 1.0, 0.5)
+        st.write("Variable 2")
+        var2 = st.slider('', 0.0, 1.0, 0.5)
         st.markdown('</div>', unsafe_allow_html=True)
 
         st.markdown('<div class="gray-box">', unsafe_allow_html=True)
-        var3 = st.slider('Variable 3', 0.0, 1.0, 0.5)
+        st.write("Variable 3")
+        var3 = st.slider('', 0.0, 1.0, 0.5)
         st.markdown('</div>', unsafe_allow_html=True)
 
         st.markdown('<div class="gray-box">', unsafe_allow_html=True)
-        var4 = st.slider('Variable 4', 0.0, 1.0, 0.5)
+        st.write("Variable 4")
+        var4 = st.slider('', 0.0, 1.0, 0.5)
         st.markdown('</div>', unsafe_allow_html=True)
 
         st.markdown('<div class="gray-box">', unsafe_allow_html=True)
-        uploaded_file = st.file_uploader("Upload your scan and segmentation", type=["nii", "nii.gz", "dcm"])
+        st.write("Upload your scan and segmentation")
+        uploaded_file = st.file_uploader("", type=["nii", "nii.gz", "dcm"])
         if uploaded_file is not None:
             radiomics_score = generate_radiomics_score(uploaded_file)
             st.write(f"Generated Radiomics Score: {radiomics_score:.2f}")
