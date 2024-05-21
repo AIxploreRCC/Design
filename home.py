@@ -21,10 +21,13 @@ optimal_threshold = 3.38141178443309
 
 def home():
     # Title of the Streamlit app
-    st.title("Calculator")
-    st.write("""RenalCheck is an advanced AI algorithm designed to predict post-operative oncological outcomes 
+    st.title("RenalCheck — RCC Clinical Radiomics Algorithm App")
+
+    st.write("""
+    RenalCheck is an advanced AI algorithm designed to predict post-operative oncological outcomes 
     in patients with clear renal cell carcinoma (RCC). This tool is tailored for patients at intermediate or high risk of recurrence, specifically 
-    those meeting the eligibility criteria of the KEYNOTE 564 trial, including stages pT1b and G3-4, pT3/pT4, and N1.""")
+    those meeting the eligibility criteria of the KEYNOTE 564 trial, including stages pT1b and G3-4, pT3/pT4, and N1.
+    """)
 
     # Inputs for the model's variables
     hb = st.selectbox("Hemoglobin Level", options=[0, 1])
@@ -68,5 +71,13 @@ def home():
                 risk_group = "High risk" if risk_score >= optimal_threshold else "Low risk"
                 st.write(f"The patient is in the {risk_group} group.")
                 
+                # Add patient-specific prediction text
+                st.subheader('Patient-specific prediction')
+                
             except Exception as e:
                 st.error(f"Prediction failed: {e}")
+
+# Run the home function
+if __name__ == "__main__":
+    home()
+
