@@ -14,10 +14,6 @@ def load_model():
         raise FileNotFoundError(f"Model file not found: {model_path}")
     return load(model_path)
 
-
-# Seuil optimal pour séparer les groupes de risque
-optimal_threshold = 3.38141178443309
-
 # Charger les données pour tracer la courbe de Kaplan-Meier
 @st.cache
 def load_km_data():
@@ -50,20 +46,43 @@ def plot_kaplan_meier(data):
     
     return fig
 
-def home():
+def plot_risk_diagram(risk_score, optimal_threshold):
+    fig = go.Figure(go.Bar(
+        x=[risk_score],
+        y=['Patient Risk Score'],
+        orientation='h',
+        marker=dict(
+            color='rgba(255, 0, 0, 0.6)' if risk_score >= optimal_threshold else 'rgba(0, 255, 0, 0.6)',
+            line=dict(color='rgba(255, 0, 0, 1.0)' if risk_score >= optimal_threshold else 'rgba(0, 255, 0, 1.0)', width=3)
+        )
+    ))
+
+    fig.update_layout(
+        title='Risk Score Diagram',
+        xaxis=dict(title='Risk Score'),
+        yaxis=dict(title=''),
+        showlegend=False
+    )
+    
+    return fig
+
+def homee():
     st.write("""
     RenalCheck is an advanced AI algorithm designed to predict post-operative oncological outcomes 
     in patients with clear renal cell carcinoma (RCC). This tool is tailored for patients at intermediate or high risk of recurrence, specifically 
     those meeting the eligibility criteria of the KEYNOTE 564 trial, including stages pT1b and G3-4, pT3/pT4, and N1.
     """)
 
-    col1, col2 = st.columns([1, 2])
+    col1, col2 = st.columns(2)
 
     with col1:
         hb = st.selectbox("Hemoglobin < lower limit of normal", options=[0, 1])
         N = st.selectbox("Pathological Lymph Node Involvement", options=[0, 1, 2])
         rad = st.slider("Radiomics Signature", min_value=0.0, max_value=1.0, value=0.5, step=0.1)
         Thrombus = st.selectbox("Vascular Invasion", options=[0, 1, 2, 3])
+
+        # Bouton Predict Survival
+        predict_button = st.button('Predict Survival')
 
     with col2:
         input_df = pd.DataFrame({
@@ -76,7 +95,7 @@ def home():
         input_df['N'] = input_df['N'].astype('category')
         input_df['Thrombus'] = input_df['Thrombus'].astype('category')
 
-        if st.button('Predict Survival'):
+        if predict_button:
             with st.spinner('Calculating... Please wait.'):
                 try:
                     model_cox = load_model()
@@ -108,6 +127,10 @@ def home():
                     risk_group = "High risk" if risk_score >= optimal_threshold else "Low risk"
                     st.subheader(f"The patient is in the {risk_group} group.")
                     st.subheader('Patient-specific prediction')
+
+                    # Diagramme de risque
+                    risk_fig = plot_risk_diagram(risk_score, optimal_threshold)
+                    st.plotly_chart(risk_fig)
 
                 except Exception as e:
                     st.error(f"Prediction failed: {e}")
