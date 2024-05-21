@@ -19,11 +19,13 @@ local_css("styles2.css")
 
 # Titre de l'application avec logos
 st.markdown(f"""
-    <div style="text-align: center;">
-        <img src="{logo1_url}" alt="Logo 1" style="width: 100px; height: 60px; display: block; margin: 0 auto;">
-        <img src="{logo2_url}" alt="Logo 2" style="width: 20px; height: 40px; display: block; margin: 10px auto;">
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <div style="display: flex; flex-direction: column; align-items: center; margin-right: 20px;">
+            <img src="{logo1_url}" alt="Logo 1" style="width: 100px; height: 100px;">
+            <img src="{logo2_url}" alt="Logo 2" style="width: 60px; height: 60px; margin-top: 10px;">
+        </div>
+        <h1 style="margin: 0;">RenalCheck — RCC Clinical Radiomics Algorithm App</h1>
     </div>
-    <h1 style="text-align: center;">RenalCheck — RCC Clinical Radiomics Algorithm App</h1>
     <hr style="border: 1px solid #ccc;">
 """, unsafe_allow_html=True)
 
