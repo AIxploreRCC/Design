@@ -9,8 +9,6 @@ import os
 # Configurer la page pour utiliser toute la largeur
 st.set_page_config(layout="wide")
 
-
-
 # Charger le modèle avec mise en cache
 @st.cache(allow_output_mutation=True)
 def load_model():
