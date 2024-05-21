@@ -1,23 +1,15 @@
-/* Change slider color */
-.css-1dp5vir .stSlider .stSlider__track {
-    background: #001f3f; /* Navy blue */
-}
-.css-1dp5vir .stSlider .stSlider__thumb {
-    background-color: #001f3f; /* Navy blue */
-}
-.css-1dp5vir .stSlider .stSlider__control {
-    color: #001f3f; /* Navy blue */
+/* Change slider thumb (cursor) color */
+div[data-baseweb="slider"] > div > div > div > div[role="slider"] {
+    background-color: #001f3f !important; /* Navy blue */
+    box-shadow: 0px 0px 0px 0.2rem rgba(1, 31, 63, 0.4) !important;
 }
 
-/* Change button color */
-.css-1dp5vir .stButton > button {
-    background-color: #001f3f; /* Navy blue */
-    border-color: #001f3f; /* Navy blue */
-    color: white; /* Text color */
+/* Change slider bar color */
+div[data-baseweb="slider"] > div > div {
+    background: linear-gradient(to right, #001f3f 0%, #001f3f 50%, #e6e6e6 50%, #e6e6e6 100%) !important;
 }
 
-/* Change select box color */
-.css-1dp5vir .stSelectbox > div {
-    background-color: #001f3f; /* Navy blue */
-    color: white; /* Text color */
+/* Change slider value color */
+div[data-baseweb="slider"] > div > div > div > div {
+    color: #001f3f !important; /* Navy blue */
 }
