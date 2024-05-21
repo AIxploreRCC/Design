@@ -49,7 +49,7 @@ def contact():
     """)
 
 if choice == "Home":
-    home()
+    home2()
 elif choice == "About":
     about()
 elif choice == "Radiomics Score Generator":
