@@ -46,7 +46,7 @@ def plot_kaplan_meier(data):
     
     return fig
 
-def home():
+def homee():
     st.write("""
     RenalCheck is an advanced AI algorithm designed to predict post-operative oncological outcomes 
     in patients with clear renal cell carcinoma (RCC). This tool is tailored for patients at intermediate or high risk of recurrence, specifically 
