@@ -21,7 +21,7 @@ local_css("styles2.css")
 st.markdown(f"""
     <div style="text-align: center;">
         <img src="{logo1_url}" alt="Logo 1" style="width: 100px; height: 60px; display: block; margin: 0 auto;">
-        <img src="{logo2_url}" alt="Logo 2" style="width: 40px; height: 20px; display: block; margin: 10px auto;">
+        <img src="{logo2_url}" alt="Logo 2" style="width: 20px; height: 40px; display: block; margin: 10px auto;">
     </div>
     <h1 style="text-align: center;">RenalCheck — RCC Clinical Radiomics Algorithm App</h1>
     <hr style="border: 1px solid #ccc;">
