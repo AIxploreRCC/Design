@@ -121,6 +121,10 @@ def homee():
                     st.plotly_chart(fig)
 
                     risk_score = model_cox.predict(input_df)[0]
+                   
+
+                    # Centrer la citation entre les deux colonnes
+                    st.markdown("<h3 style='text-align: center;'>The patient is in the {} group.</h3>".format("High risk" if risk_score >= optimal_threshold else "Low risk"), unsafe_allow_html=True)
 
 
                     risk_group = "High risk" if risk_score >= optimal_threshold else "Low risk"
