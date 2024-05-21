@@ -121,11 +121,11 @@ def homee():
                     st.plotly_chart(fig)
 
                     risk_score = model_cox.predict(input_df)[0]
-                    st.write(f"Calculated risk score: {risk_score:.5f}")
+
 
                     risk_group = "High risk" if risk_score >= optimal_threshold else "Low risk"
                     st.subheader(f"The patient is in the {risk_group} group.")
-                    st.subheader('Patient-specific prediction')
+
 
                 except Exception as e:
                     st.error(f"Prediction failed: {e}")
