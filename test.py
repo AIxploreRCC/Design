@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from lifelines import KaplanMeierFitter
-from radiomics_score_generator import radiomics_score_generator
 from home import home
 
 # URL des logos hébergés sur GitHub (lien brut)
