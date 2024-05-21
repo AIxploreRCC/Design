@@ -3,8 +3,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from lifelines import KaplanMeierFitter
-import joblib
-from home import home
+from radiomics_score_generator import radiomics_score_generator
+from home import home  # Assurez-vous que l'importation est correcte
 
 # URL des logos hébergés sur GitHub (lien brut)
 logo1_url = "https://raw.githubusercontent.com/AIxploreRCC/Design/main/logo%203.png"
