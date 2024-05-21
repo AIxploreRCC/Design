@@ -17,7 +17,7 @@ def load_model():
 # Charger les données pour tracer la courbe de Kaplan-Meier
 @st.cache
 def load_km_data():
-    file_path = "/mnt/data/km_curve_data.csv"
+    file_path = "km_curve_data.csv"
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"File not found: {file_path}")
     df = pd.read_csv(file_path)
