@@ -14,16 +14,10 @@ def load_model():
         raise FileNotFoundError(f"Model file not found: {model_path}")
     return load(model_path)
 
-
-# Seuil optimal pour séparer les groupes de risque
-optimal_threshold = 3.38141178443309
-
-
-
 # Charger les données pour tracer la courbe de Kaplan-Meier
 @st.cache
 def load_km_data():
-    file_path = "km_curve_data.csv"
+    file_path = "/mnt/data/km_curve_data.csv"
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"File not found: {file_path}")
     df = pd.read_csv(file_path)
@@ -52,14 +46,14 @@ def plot_kaplan_meier(data):
     
     return fig
 
-def homee():
+def home():
     st.write("""
     RenalCheck is an advanced AI algorithm designed to predict post-operative oncological outcomes 
     in patients with clear renal cell carcinoma (RCC). This tool is tailored for patients at intermediate or high risk of recurrence, specifically 
     those meeting the eligibility criteria of the KEYNOTE 564 trial, including stages pT1b and G3-4, pT3/pT4, and N1.
     """)
 
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns([1, 2])
 
     with col1:
         hb = st.selectbox("Hemoglobin < lower limit of normal", options=[0, 1])
