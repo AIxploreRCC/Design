@@ -99,14 +99,11 @@ def homee():
                 try:
                     model_cox = load_model()
                     survival_function = model_cox.predict_survival_function(input_df)
-                    st.subheader('Patient-specific prediction:')
-                    
                     time_points = survival_function[0].x
                     time_points = time_points[time_points <= 60]
                     survival_probabilities = [fn(time_points) for fn in survival_function]
                     survival_df = pd.DataFrame(survival_probabilities).transpose()
                     survival_df.columns = ['Survival Probability']
-
                     data = load_km_data()
                     fig = plot_kaplan_meier(data)
                     
