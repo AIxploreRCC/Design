@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from lifelines import KaplanMeierFitter
 import joblib
 from homee import homee
-from radiomics_score_generator import radiomics_score_generator
+
 
 
 # URL des logos hébergés sur GitHub (lien brut)
