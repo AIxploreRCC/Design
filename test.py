@@ -42,7 +42,3 @@ elif choice == "Contact":
     st.write("""
     For any inquiries, please contact us at: support@radiomicsapp.com
     """)
-
-# Exécuter l'application
-if __name__ == '__main__':
-    st.run()
