@@ -1,22 +1,23 @@
-/* styles.css */
-div[data-baseweb="select"] > div {
+/* Change slider color */
+.css-1dp5vir .stSlider .stSlider__track {
+    background: #001f3f; /* Navy blue */
+}
+.css-1dp5vir .stSlider .stSlider__thumb {
     background-color: #001f3f; /* Navy blue */
 }
-
-.stSlider > div > div > div > div[role="slider"] {
-    background-color: #001f3f; /* Navy blue */
-}
-
-.stButton > button {
-    background-color: #001f3f; /* Navy blue */
-    border: 1px solid #001f3f;
-    color: white;
-}
-
-.st-bw {
+.css-1dp5vir .stSlider .stSlider__control {
     color: #001f3f; /* Navy blue */
 }
 
-.css-1d391kg .st-b8 {
-    color: #001f3f; /* Navy blue */
+/* Change button color */
+.css-1dp5vir .stButton > button {
+    background-color: #001f3f; /* Navy blue */
+    border-color: #001f3f; /* Navy blue */
+    color: white; /* Text color */
+}
+
+/* Change select box color */
+.css-1dp5vir .stSelectbox > div {
+    background-color: #001f3f; /* Navy blue */
+    color: white; /* Text color */
 }
