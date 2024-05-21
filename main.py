@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from lifelines import KaplanMeierFitter
 import joblib
-from homee import homee
+from homee import home
 
 # URL des logos hébergés sur GitHub (lien brut)
 logo1_url = "https://raw.githubusercontent.com/AIxploreRCC/Design/main/logo%203.png"
@@ -15,7 +15,7 @@ def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-local_css("styles2.css")
+local_css("styles.css")
 
 # Titre de l'application avec logos
 st.markdown(f"""
@@ -49,7 +49,7 @@ def contact():
     """)
 
 if choice == "Home":
-    homee()
+    home()
 elif choice == "About":
     about()
 elif choice == "Radiomics Score Generator":
