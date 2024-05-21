@@ -3,11 +3,15 @@ import pandas as pd
 from joblib import load
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
 # Charger le modèle avec mise en cache
 @st.cache(allow_output_mutation=True)
 def load_model():
-    return load('coxph_model.joblib')
+    model_path = 'coxph_model.joblib'
+    if not os.path.exists(model_path):
+        raise FileNotFoundError(f"Model file not found: {model_path}")
+    return load(model_path)
 
 # Charger le modèle
 model_cox = load_model()
