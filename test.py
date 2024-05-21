@@ -23,7 +23,7 @@ st.markdown(f"""
 
 
 # Barre de navigation
-menu = ["Home", "About", "Radiomics Score Generator", "Contact"]
+menu = ["Home", "Radiomics Score Generator", "About"]
 choice = st.sidebar.selectbox("Navigation", menu)
 
 if choice == "Home":
