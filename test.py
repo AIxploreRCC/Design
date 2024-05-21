@@ -3,18 +3,18 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from lifelines import KaplanMeierFitter
+from radiomics_score_generator import radiomics_score_generator
 
 # URL des logos hébergés sur GitHub (lien brut)
 logo1_url = "https://raw.githubusercontent.com/AIxploreRCC/Design/main/logo%203.png"
 logo2_url = "https://raw.githubusercontent.com/AIxploreRCC/Design/main/images.png"
 
-
 # Titre de l'application avec logos
 st.markdown(f"""
-    <div style="display: flex; align-items: center; justify-content: center;">
-        <img src="{logo1_url}" alt="Logo 1" style="width: 60px; height: 60px; margin-right: 20px;">
-        <h1 style="margin: 0;">RenalCheck — RCC Clinical Radiomics Algorithm App</h1>
-        <img src="{logo2_url}" alt="Logo 2" style="width: 60px; height: 60px; margin-left: 20px;">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="{logo1_url}" alt="Logo 1" style="width: 60px; height: 60px; margin-bottom: 10px;">
+        <img src="{logo2_url}" alt="Logo 2" style="width: 60px; height: 60px; margin-bottom: 10px;">
+        <h1 style="margin: 0; text-align: center;">RenalCheck — RCC Clinical Radiomics Algorithm App</h1>
     </div>
     <hr style="border: 1px solid #ccc;">
 """, unsafe_allow_html=True)
