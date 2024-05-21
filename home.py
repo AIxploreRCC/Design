@@ -52,7 +52,7 @@ def home():
         with st.spinner('Calculating... Please wait.'):
             try:
                 survival_function = model_cox.predict_survival_function(input_df)
-                st.subheader('Patient-specific prediction:')
+                st.subheader('Estimated Survival Probability:')
                 
                 # Prepare data for plotting
                 time_points = survival_function[0].x
@@ -60,17 +60,30 @@ def home():
                 survival_df = pd.DataFrame(survival_probabilities).transpose()
                 survival_df.columns = ['Survival Probability']
 
+                # Create a table for Disease Free Survival (DFS) Probability at 12-month intervals up to 60 months
+                dfs_probabilities = survival_df.iloc[[int(12 * i) for i in range(6)], :].reset_index(drop=True)
+                dfs_probabilities.index = [f"{12 * (i + 1)} months" for i in range(6)]
+                st.table(dfs_probabilities)
+
                 # Plot survival function
-                st.line_chart(survival_df)
-                
+                plt.figure(figsize=(10, 6))
+                plt.plot(time_points, survival_df['Survival Probability'], label='Survival Probability')
+                plt.xlabel('Time (months)')
+                plt.ylabel('Survival Probability')
+                plt.title('Kaplan-Meier Curve')
+                plt.legend()
+                st.pyplot(plt)
+
                 # Calculate the risk score
                 risk_score = model_cox.predict(input_df)[0]
                 st.write(f"Calculated risk score: {risk_score:.5f}")
 
                 # Determine the risk group
                 risk_group = "High risk" if risk_score >= optimal_threshold else "Low risk"
-                st.write(f"The patient is in the {risk_group} group.")
-
+                st.subheader(f"The patient is in the {risk_group} group.")
+                
+                # Add patient-specific prediction text
+                st.subheader('Patient-specific prediction')
                 
             except Exception as e:
                 st.error(f"Prediction failed: {e}")
@@ -78,4 +91,3 @@ def home():
 # Run the home function
 if __name__ == "__main__":
     home()
-
