@@ -32,8 +32,8 @@ def home():
     # DataFrame for model input
     input_df = pd.DataFrame({
         'HbN': [hb],
-        'N': [N],
         'rad': [rad],
+        'N': [N],
         'Thrombus': [Thrombus]
     })
 
