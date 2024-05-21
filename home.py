@@ -25,11 +25,17 @@ def load_model():
 # Charger les données pour tracer la courbe de Kaplan-Meier
 @st.cache
 def load_km_data():
-    df = pd.read_csv("km_curve_data.csv")
+    file_path = "/mnt/data/km_curve_data.csv"  # Utilisez le chemin approprié
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"File not found: {file_path}")
+    df = pd.read_csv(file_path)
     return df
 
 # Charger les données de survie
 data = load_km_data()
+
+# Vérifier les colonnes du fichier CSV
+st.write("Colonnes du fichier CSV:", data.columns.tolist())
 
 # Charger le modèle
 model_cox = load_model()
