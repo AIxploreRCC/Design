@@ -109,16 +109,7 @@ def homee():
 
                     # Déterminer le groupe de risque et ajouter l'icône de feu appropriée
                     risk_group = "High risk" if risk_score >= optimal_threshold else "Low risk"
-                    risk_color = "red" if risk_group == "High risk" else "green"
                     st.write(f"Risk group: {risk_group}")
-                    st.write(f"Risk color: {risk_color}")
-
-                    # Utiliser les mêmes symboles Unicode pour les drapeaux mais avec des couleurs différentes
-                    flag_icon = "&#x1F6A9;"  # Unicode pour un drapeau
-                    icon_html = f"<div style='text-align: center;'><span style='color: {risk_color}; font-size: 50px;'>{flag_icon}</span></div>"
-                    st.markdown(icon_html, unsafe_allow_html=True)
-                    st.markdown(f"<h3 style='text-align: center;'>The patient is in the {risk_group} group.</h3>", unsafe_allow_html=True)
-                    st.markdown("<hr>", unsafe_allow_html=True)
 
 
                 except Exception as e:
