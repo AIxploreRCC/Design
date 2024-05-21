@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from lifelines import KaplanMeierFitter
 import joblib
-from home import home
+from homee import homee
 
 # URL des logos hébergés sur GitHub (lien brut)
 logo1_url = "https://raw.githubusercontent.com/AIxploreRCC/Design/main/logo%203.png"
@@ -49,7 +49,7 @@ def contact():
     """)
 
 if choice == "Home":
-    home2()
+    homee()
 elif choice == "About":
     about()
 elif choice == "Radiomics Score Generator":
