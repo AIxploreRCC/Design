@@ -20,9 +20,6 @@ model_cox = load_model()
 optimal_threshold = 3.38141178443309
 
 def home():
-    # Title of the Streamlit app
-    st.title("RenalCheck — RCC Clinical Radiomics Algorithm App")
-
     st.write("""
     RenalCheck is an advanced AI algorithm designed to predict post-operative oncological outcomes 
     in patients with clear renal cell carcinoma (RCC). This tool is tailored for patients at intermediate or high risk of recurrence, specifically 
