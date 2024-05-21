@@ -37,7 +37,7 @@ def home():
     """)
 
     # Inputs for the model's variables
-    hb = st.selectbox("Hemoglobin Level", options=[0, 1])
+    hb = st.selectbox("Hemoglobin < lower limit of normal", options=[0, 1])
     N = st.selectbox("N", options=[0, 1, 2])
     rad = st.slider("Radiomics Signature", min_value=0.0, max_value=1.0, value=0.5, step=0.1)
     Thrombus = st.selectbox("Thrombus", options=[0, 1, 2, 3])
