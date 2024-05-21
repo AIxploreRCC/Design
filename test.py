@@ -8,8 +8,15 @@ from lifelines import KaplanMeierFitter
 def generate_radiomics_score(uploaded_file):
     return np.random.rand()
 
-# Titre de l'application
-st.title("Radiomics Survival Prediction App")
+# Titre de l'application avec logos
+st.markdown("""
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <img src="logo1.png" alt="Logo 3.png" style="width: 60px; height: 60px; margin-right: 20px;">
+        <h1 style="margin: 0;">RenalCheck — RCC Clinical Radiomics Algorithm App</h1>
+        <img src="logo2.png" alt="images.png" style="width: 60px; height: 60px; margin-left: 20px;">
+    </div>
+    <hr style="border: 1px solid #ccc;">
+""", unsafe_allow_html=True)
 
 # Barre de navigation
 menu = ["Home", "About", "Upload", "Contact"]
@@ -73,3 +80,4 @@ elif choice == "Contact":
 # Exécuter l'application
 if __name__ == '__main__':
     st.run()
+
