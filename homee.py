@@ -124,7 +124,7 @@ def homee():
                    
                     # Déterminer le groupe de risque et ajouter l'icône de feu appropriée
                     risk_group = "High risk" if risk_score >= optimal_threshold else "Low risk"
-                    risk_color = "green" if risk_score >= optimal_threshold else "red"
+                    risk_color = "red" if risk_score >= optimal_threshold else "green"
                     icon_html = f"<div style='text-align: center;'><span style='color: {risk_color}; font-size: 50px;'>&#x1F6A9;</span></div>"
                     st.markdown(icon_html, unsafe_allow_html=True)
                     st.markdown(f"<h3 style='text-align: center;'>The patient is in the {risk_group} group.</h3>", unsafe_allow_html=True)
