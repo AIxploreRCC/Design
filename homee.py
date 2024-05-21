@@ -26,9 +26,7 @@ def load_km_data():
 # Fonction pour tracer les courbes de Kaplan-Meier
 def plot_kaplan_meier(data):
     kmf = KaplanMeierFitter()
-    
     fig = go.Figure()
-
     for group in data['group'].unique():
         mask = data['group'] == group
         kmf.fit(data[mask]['TimeR'], event_observed=data[mask]['Rec'], label=group)
@@ -39,7 +37,6 @@ def plot_kaplan_meier(data):
             mode='lines',
             name=group
         ))
-
     fig.update_layout(
                       xaxis_title='Time (months)',
                       yaxis_title='Survival Probability',
