@@ -40,9 +40,6 @@ def about():
     Adjust the input variables to see how the survival curve changes.
     """)
 
-def radiomics_score_generator():
-    st.header("Radiomics Score Generator")
-    st.write("This feature is under development.")
 
 def contact():
     st.header("Contact")
