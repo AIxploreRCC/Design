@@ -102,7 +102,7 @@ def homee():
                 try:
                     model_cox = load_model()
                     survival_function = model_cox.predict_survival_function(input_df)
-                    st.subheader('Estimated Survival Probability:')
+                    st.subheader('Patient-specific prediction:')
                     
                     time_points = survival_function[0].x
                     time_points = time_points[time_points <= 60]
