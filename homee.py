@@ -57,19 +57,34 @@ def homee():
     those meeting the eligibility criteria of the KEYNOTE 564 trial, including stages pT1b and G3-4, pT3/pT4, and N1.
     """)
 
+    # Dictionnaires de mapping pour les sélecteurs
+    N_mapping = {
+        "N0": 0,
+        "N1": 1,
+        "Nx": 2
+    }
+
+    Thrombus_mapping = {
+        "None": 0,
+        "Segmental vein/arteriole invasion": 1,
+        "Renal Vein invasion": 2,
+        "Caval invasion": 3
+    }
+
     col1, col2 = st.columns(2)
 
     with col1:
         hb = st.selectbox("Hemoglobin < lower limit of normal", options=[0, 1])
-        N = st.selectbox("Pathological Lymph Node Involvement", options=[0, 1, 2])
+        N_label = st.selectbox("Pathological Lymph Node Involvement", options=list(N_mapping.keys()))
         rad = st.slider("Radiomics Signature", min_value=0.0, max_value=1.0, value=0.5, step=0.1)
-        Thrombus = st.selectbox("Vascular Invasion", options=[0, 1, 2, 3])
+        Thrombus_label = st.selectbox("Vascular Invasion", options=list(Thrombus_mapping.keys()))
 
         # Bouton Predict Survival
         predict_button = st.button('Predict Survival')
 
-
-
+        # Récupérer les valeurs numériques basées sur les labels sélectionnés
+        N = N_mapping[N_label]
+        Thrombus = Thrombus_mapping[Thrombus_label]
 
         input_df = pd.DataFrame({
             'HbN': [hb],
@@ -78,10 +93,9 @@ def homee():
             'Thrombus': [Thrombus]
         })
 
-
-        
         input_df['N'] = input_df['N'].astype('category')
         input_df['Thrombus'] = input_df['Thrombus'].astype('category')
+
 
     with col2:
 
