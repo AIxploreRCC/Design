@@ -79,7 +79,7 @@ def homee():
     with col1:
         hb = st.selectbox("Hemoglobin < lower limit of normal", options=[0, 1])
         N_label = st.selectbox("Pathological Lymph Node Involvement", options=list(N_mapping.keys()))
-        rad = st.slider("Radiomics Signature", min_value=0.0, max_value=1.0, value=0.5, step=0.1)
+        rad = st.slider("Radiomics Signature", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
         Thrombus_label = st.selectbox("Vascular Invasion", options=list(Thrombus_mapping.keys()))
 
         # Bouton Predict Survival
