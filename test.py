@@ -17,6 +17,25 @@ st.markdown("""
     .block-container {
         padding-top: 2rem;
     }
+    .stSlider > div > div > div > input[type=range] {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 8px;
+        background: #007BFF;
+        outline: none;
+        opacity: 0.7;
+        transition: opacity .2s;
+    }
+    .stSlider > div > div > div > input[type=range]:hover {
+        opacity: 1;
+    }
+    .gray-box {
+        background-color: #f0f0f0;
+        border: 1px solid #d3d3d3;
+        border-radius: 5px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
     .stButton > button {
         background-color: #007BFF;
         color: white;
@@ -26,13 +45,6 @@ st.markdown("""
     }
     .stButton > button:hover {
         background-color: #0056b3;
-    }
-    .gray-box {
-        background-color: #f0f0f0;
-        border: 1px solid #d3d3d3;
-        border-radius: 5px;
-        padding: 1rem;
-        margin-bottom: 1rem;
     }
     </style>
 """, unsafe_allow_html=True)
