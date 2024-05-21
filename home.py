@@ -52,9 +52,10 @@ def plot_kaplan_meier(data):
     for group in data['group'].unique():
         mask = data['group'] == group
         kmf.fit(data[mask]['TimeR'], event_observed=data[mask]['Rec'], label=group)
+        survival_function = kmf.survival_function_
         fig.add_trace(go.Scatter(
-            x=kmf.survival_function_.index, 
-            y=kmf.survival_function_['KM_estimate'],
+            x=survival_function.index, 
+            y=survival_function.iloc[:, 0],
             mode='lines',
             name=group
         ))
