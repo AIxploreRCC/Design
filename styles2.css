@@ -1,6 +1,6 @@
 /* Utiliser toute la largeur de la page */
 [data-testid="stAppViewContainer"] {
-    max-width: 100%;
+    max-width: 150%;
     padding: 0;
 }
 
