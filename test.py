@@ -13,7 +13,7 @@ logo2_url = "https://raw.githubusercontent.com/AIxploreRCC/Design/main/images.pn
 # Titre de l'application avec logos
 st.markdown(f"""
     <div style="display: flex; align-items: center;">
-        <img src="{logo1_url}" alt="Logo 1" style="width: 100px; height: 100px; margin-right: 20px;">
+        <img src="{logo1_url}" alt="Logo 1" style="width: 150px; height: 100px; margin-right: 20px;">
         <img src="{logo2_url}" alt="Logo 2" style="width: 60px; height: 60px; margin-right: 20px;">
         <h1 style="margin: 0; text-align: center;">RenalCheck — RCC Clinical Radiomics Algorithm App</h1>
     </div>
