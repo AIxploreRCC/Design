@@ -83,8 +83,9 @@ def homee():
         # Bouton Predict Survival
         predict_button = st.button('Predict Survival')
 
-    with col2:
-        @st.cache
+
+
+
         input_df = pd.DataFrame({
             'HbN': [hb],
             'rad': [rad],
@@ -92,8 +93,12 @@ def homee():
             'Thrombus': [Thrombus]
         })
 
+
+        
         input_df['N'] = input_df['N'].astype('category')
         input_df['Thrombus'] = input_df['Thrombus'].astype('category')
+
+    with col2:
 
         if predict_button:
             with st.spinner('Calculating... Please wait.'):
