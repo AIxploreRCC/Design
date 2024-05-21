@@ -110,7 +110,9 @@ def homee():
                     st.write(f"Risk group: {risk_group}")
                     st.write(f"Risk color: {risk_color}")
 
-                    icon_html = f"<div style='text-align: center;'><span style='color: {risk_color}; font-size: 50px;'>&#x1F6A9;</span></div>"
+                    # Utiliser les caractères Unicode pour les drapeaux vert et rouge
+                    flag_icon = "&#x1F6A9;" if risk_group == "High risk" else "&#x1F7E2;"
+                    icon_html = f"<div style='text-align: center;'><span style='color: {risk_color}; font-size: 50px;'>{flag_icon}</span></div>"
                     st.markdown("<hr>", unsafe_allow_html=True)
                     st.markdown(icon_html, unsafe_allow_html=True)
                     st.markdown(f"<h3 style='text-align: center;'>The patient is in the {risk_group} group.</h3>", unsafe_allow_html=True)
