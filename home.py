@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from joblib import load
 import numpy as np
-import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import os
 
 # Charger le modèle avec mise en cache
@@ -32,7 +32,7 @@ def home():
     # Inputs for the model's variables
     hb = st.selectbox("Hemoglobin Level", options=[0, 1])
     N = st.selectbox("N", options=[0, 1, 2])
-    rad = st.slider("Radiomics Signature", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
+    rad = st.slider("Radiomics Signature", min_value=0.0, max_value=1.0, value=0.5, step=0.1)
     Thrombus = st.selectbox("Thrombus", options=[0, 1, 2, 3])
 
     # DataFrame for model input
@@ -56,25 +56,23 @@ def home():
                 
                 # Prepare data for plotting
                 time_points = survival_function[0].x
+                time_points = time_points[time_points <= 60]  # Stop at 60 months
                 survival_probabilities = [fn(time_points) for fn in survival_function]
                 survival_df = pd.DataFrame(survival_probabilities).transpose()
                 survival_df.columns = ['Survival Probability']
 
                 # Create a table for Disease Free Survival (DFS) Probability at 12-month intervals up to 60 months
                 intervals = np.arange(12, 61, 12)
-                dfs_probabilities = survival_df.iloc[intervals - 1].reset_index(drop=True)
+                dfs_probabilities = survival_df.iloc[[int(interval - 1) for interval in intervals if interval <= len(survival_df)]].reset_index(drop=True)
                 dfs_probabilities.index = [f"{month} months" for month in intervals]
                 dfs_probabilities = dfs_probabilities.T
                 st.table(dfs_probabilities)
 
-                # Plot survival function
-                plt.figure(figsize=(10, 6))
-                plt.plot(time_points, survival_df['Survival Probability'], label='Survival Probability')
-                plt.xlabel('Time (months)')
-                plt.ylabel('Survival Probability')
-                plt.title('Kaplan-Meier Curve')
-                plt.legend()
-                st.pyplot(plt)
+                # Plot survival function using Plotly
+                fig = go.Figure()
+                fig.add_trace(go.Scatter(x=time_points, y=survival_df['Survival Probability'], mode='lines', name='Survival Probability'))
+                fig.update_layout(title='Kaplan-Meier Curve', xaxis_title='Time (months)', yaxis_title='Survival Probability')
+                st.plotly_chart(fig)
 
                 # Calculate the risk score
                 risk_score = model_cox.predict(input_df)[0]
