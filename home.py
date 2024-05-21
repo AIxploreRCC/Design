@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 import os
 
 
-r
+
 ColorMinMax = st.markdown('''
 <style>
 div.stSlider > div[data-baseweb="slider"] > div[data-testid="stTickBar"] > div {
