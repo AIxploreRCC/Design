@@ -84,6 +84,7 @@ def homee():
         predict_button = st.button('Predict Survival')
 
     with col2:
+        @st.cache
         input_df = pd.DataFrame({
             'HbN': [hb],
             'rad': [rad],
