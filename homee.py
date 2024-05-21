@@ -40,11 +40,11 @@ def plot_kaplan_meier(data):
             name=group
         ))
 
-    fig.update_layout(title='Kaplan-Meier Curve',
+    fig.update_layout(
                       xaxis_title='Time (months)',
                       yaxis_title='Survival Probability',
-                      width=600,  # Réduire la largeur de la figure
-                      height=400)  # Réduire la hauteur de la figure
+                      width=500,  # Réduire la largeur de la figure
+                      height=300)  # Réduire la hauteur de la figure
     
     return fig
 
