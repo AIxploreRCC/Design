@@ -4,7 +4,7 @@ from joblib import load
 import numpy as np
 import plotly.graph_objects as go
 import os
-
+from lifelines import KaplanMeierFitter
 
 # Function to load custom CSS
 def local_css(file_name):
@@ -14,7 +14,6 @@ def local_css(file_name):
 # Load the custom CSS file
 local_css("styles.css")
 
-
 # Charger le modèle avec mise en cache
 @st.cache(allow_output_mutation=True)
 def load_model():
@@ -23,11 +22,42 @@ def load_model():
         raise FileNotFoundError(f"Model file not found: {model_path}")
     return load(model_path)
 
+# Charger les données pour tracer la courbe de Kaplan-Meier
+@st.cache
+def load_km_data():
+    df = pd.read_csv("km_curve_data.csv")
+    return df
+
+# Charger les données de survie
+data = load_km_data()
+
 # Charger le modèle
 model_cox = load_model()
 
 # Seuil optimal pour séparer les groupes de risque
 optimal_threshold = 3.38141178443309
+
+# Fonction pour tracer les courbes de Kaplan-Meier
+def plot_kaplan_meier(data):
+    kmf = KaplanMeierFitter()
+    
+    fig = go.Figure()
+
+    for group in data['group'].unique():
+        mask = data['group'] == group
+        kmf.fit(data[mask]['TimeR'], data[mask]['Rec'], label=group)
+        fig.add_trace(go.Scatter(
+            x=kmf.survival_function_.index, 
+            y=kmf.survival_function_['KM_estimate'],
+            mode='lines',
+            name=group
+        ))
+
+    fig.update_layout(title='Kaplan-Meier Curve',
+                      xaxis_title='Time (months)',
+                      yaxis_title='Survival Probability')
+    
+    return fig
 
 def home():
     st.write("""
@@ -76,8 +106,9 @@ def home():
                 st.table(dfs_probabilities)
 
                 # Plot survival function using Plotly
-                fig = go.Figure()
-                fig.add_trace(go.Scatter(x=time_points, y=survival_df['Survival Probability'], mode='lines', name='Survival Probability'))
+                fig = plot_kaplan_meier(data)
+                
+                fig.add_trace(go.Scatter(x=time_points, y=survival_df['Survival Probability'], mode='lines', name='Patient-specific prediction', line=dict(color='blue', dash='dot')))
                 fig.update_layout(title='Kaplan-Meier Curve', xaxis_title='Time (months)', yaxis_title='Survival Probability')
                 st.plotly_chart(fig)
 
@@ -95,6 +126,5 @@ def home():
             except Exception as e:
                 st.error(f"Prediction failed: {e}")
 
-# Run the home function
 if __name__ == "__main__":
     home()
