@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from lifelines import KaplanMeierFitter
+import joblib
 from home import home
 
 # URL des logos hébergés sur GitHub (lien brut)
