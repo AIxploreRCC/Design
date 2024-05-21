@@ -48,25 +48,7 @@ def plot_kaplan_meier(data):
     
     return fig
 
-def plot_risk_diagram(risk_score, optimal_threshold):
-    fig = go.Figure(go.Bar(
-        x=[risk_score],
-        y=['Patient Risk Score'],
-        orientation='h',
-        marker=dict(
-            color='rgba(255, 0, 0, 0.6)' if risk_score >= optimal_threshold else 'rgba(0, 255, 0, 0.6)',
-            line=dict(color='rgba(255, 0, 0, 1.0)' if risk_score >= optimal_threshold else 'rgba(0, 255, 0, 1.0)', width=3)
-        )
-    ))
 
-    fig.update_layout(
-        title='Risk Score Diagram',
-        xaxis=dict(title='Risk Score'),
-        yaxis=dict(title=''),
-        showlegend=False
-    )
-    
-    return fig
 
 def homee():
     st.write("""
