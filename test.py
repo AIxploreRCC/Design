@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from lifelines import KaplanMeierFitter
-from radiomics_score_generator import radiomics_score_generator
 
 # URL des logos hébergés sur GitHub
 logo1_url = "https://raw.githubusercontent.com/votre-utilisateur/votre-repo/branche/path-to-logo1/logo1.png"
