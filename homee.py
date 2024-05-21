@@ -114,7 +114,7 @@ def homee():
                     fig = plot_kaplan_meier(data)
                     
                     fig.add_trace(go.Scatter(x=time_points, y=survival_df['Survival Probability'], mode='lines', name='Patient-specific prediction', line=dict(color='blue', dash='dot')))
-                    fig.update_layout(title='Kaplan-Meier Curve', xaxis_title='Time (months)', yaxis_title='Survival Probability')
+                    fig.update_layout(xaxis_title='Time (months)', yaxis_title='Survival Probability')
                     st.plotly_chart(fig)
 
                     risk_score = model_cox.predict(input_df)[0]
