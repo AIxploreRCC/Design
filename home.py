@@ -21,7 +21,7 @@ optimal_threshold = 3.38141178443309
 
 def home():
     # Title of the Streamlit app
-    st.title(".")
+    st.title("Calculator")
     st.write("""RenalCheck is an advanced AI algorithm designed to predict post-operative oncological outcomes 
     in patients with clear renal cell carcinoma (RCC). This tool is tailored for patients at intermediate or high risk of recurrence, specifically 
     those meeting the eligibility criteria of the KEYNOTE 564 trial, including stages pT1b and G3-4, pT3/pT4, and N1.""")
