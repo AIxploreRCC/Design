@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 from lifelines import KaplanMeierFitter
 
 # URL des logos hébergés sur GitHub
-logo1_url = "https://raw.githubusercontent.com/votre-utilisateur/votre-repo/branche/path-to-logo1/logo1.png"
-logo2_url = "https://raw.githubusercontent.com/votre-utilisateur/votre-repo/branche/path-to-logo2/logo2.png"
+logo1_url = "https://github.com/AIxploreRCC/Design/blob/main/logo%203.png"
+logo2_url = "https://github.com/AIxploreRCC/Design/blob/main/images.png"
 
 # Titre de l'application avec logos
 st.markdown(f"""
