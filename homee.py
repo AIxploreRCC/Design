@@ -14,6 +14,10 @@ def load_model():
         raise FileNotFoundError(f"Model file not found: {model_path}")
     return load(model_path)
 
+
+# Seuil optimal pour séparer les groupes de risque
+optimal_threshold = 3.38141178443309
+
 # Charger les données pour tracer la courbe de Kaplan-Meier
 @st.cache
 def load_km_data():
