@@ -8,12 +8,16 @@ from lifelines import KaplanMeierFitter
 def generate_radiomics_score(uploaded_file):
     return np.random.rand()
 
+# URL des logos hébergés sur GitHub
+logo1_url = "https://github.com/votre-utilisateur/votre-repo/raw/branche/path-to-logo1/logo1.png"
+logo2_url = "https://github.com/votre-utilisateur/votre-repo/raw/branche/path-to-logo2/logo2.png"
+
 # Titre de l'application avec logos
-st.markdown("""
+st.markdown(f"""
     <div style="display: flex; align-items: center; justify-content: center;">
-        <img src="logo1.png" alt="Logo 3.png" style="width: 60px; height: 60px; margin-right: 20px;">
+        <img src="{logo1_url}" alt="Logo 1" style="width: 60px; height: 60px; margin-right: 20px;">
         <h1 style="margin: 0;">RenalCheck — RCC Clinical Radiomics Algorithm App</h1>
-        <img src="logo2.png" alt="images.png" style="width: 60px; height: 60px; margin-left: 20px;">
+        <img src="{logo2_url}" alt="Logo 2" style="width: 60px; height: 60px; margin-left: 20px;">
     </div>
     <hr style="border: 1px solid #ccc;">
 """, unsafe_allow_html=True)
@@ -80,4 +84,3 @@ elif choice == "Contact":
 # Exécuter l'application
 if __name__ == '__main__':
     st.run()
-
