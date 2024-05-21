@@ -9,8 +9,8 @@ def generate_radiomics_score(uploaded_file):
     return np.random.rand()
 
 # URL des logos hébergés sur GitHub
-logo1_url = "https://github.com/votre-utilisateur/votre-repo/raw/branche/path-to-logo1/logo1.png"
-logo2_url = "https://github.com/votre-utilisateur/votre-repo/raw/branche/path-to-logo2/logo2.png"
+logo1_url = "logo 3.png"
+logo2_url = "images.png"
 
 # Titre de l'application avec logos
 st.markdown(f"""
