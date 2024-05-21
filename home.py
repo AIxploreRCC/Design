@@ -1,10 +1,10 @@
 import streamlit as st
 import pandas as pd
-from joblib import load
 import numpy as np
 import plotly.graph_objects as go
-import os
+from joblib import load
 from lifelines import KaplanMeierFitter
+import os
 
 # Function to load custom CSS
 def local_css(file_name):
@@ -25,7 +25,7 @@ def load_model():
 # Charger les données pour tracer la courbe de Kaplan-Meier
 @st.cache
 def load_km_data():
-    df = pd.read_csv("km_curve_data.csv")
+    df = pd.read_csv("/mnt/data/km_curve_data.csv")
     return df
 
 # Charger les données de survie
@@ -45,7 +45,7 @@ def plot_kaplan_meier(data):
 
     for group in data['group'].unique():
         mask = data['group'] == group
-        kmf.fit(data[mask]['TimeR'], data[mask]['Rec'], label=group)
+        kmf.fit(data[mask]['TimeR'], event_observed=data[mask]['Rec'], label=group)
         fig.add_trace(go.Scatter(
             x=kmf.survival_function_.index, 
             y=kmf.survival_function_['KM_estimate'],
