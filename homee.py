@@ -10,18 +10,6 @@ import os
 st.set_page_config(layout="wide")
 
 
-# CSS personnalisé pour le slider
-st.markdown("""
-    <style>
-    .stSlider > div[data-baseweb="slider"] > div {
-        background: #000080;  /* Bleu navy */
-    }
-    .stSlider > div[data-baseweb="slider"] > div > div {
-        color: #000080;  /* Bleu navy */
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
 
 # Charger le modèle avec mise en cache
 @st.cache(allow_output_mutation=True)
