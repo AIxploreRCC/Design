@@ -127,9 +127,5 @@ def homee():
                     st.subheader(f"The patient is in the {risk_group} group.")
                     st.subheader('Patient-specific prediction')
 
-                    # Diagramme de risque
-                    risk_fig = plot_risk_diagram(risk_score, optimal_threshold)
-                    st.plotly_chart(risk_fig)
-
                 except Exception as e:
                     st.error(f"Prediction failed: {e}")
