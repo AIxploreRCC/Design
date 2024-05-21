@@ -1,0 +1,9 @@
+/* CSS personnalisé pour ajuster la largeur de la page */
+[data-testid="stAppViewContainer"] {
+    max-width: 100%;
+    padding: 0;
+}
+
+[data-testid="stHeader"] {
+    display: none;
+}
