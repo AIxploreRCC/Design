@@ -6,9 +6,6 @@ lifelines
 joblib
 scikit-survival
 plotly
-
-
-pyradiomics
 SimpleITK 
 nibabel
 scikit-learn
