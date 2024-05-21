@@ -52,7 +52,7 @@ def home():
         with st.spinner('Calculating... Please wait.'):
             try:
                 survival_function = model_cox.predict_survival_function(input_df)
-                st.subheader('Estimated Survival Probability:')
+                st.subheader('Patient-specific prediction:')
                 
                 # Prepare data for plotting
                 time_points = survival_function[0].x
@@ -70,9 +70,7 @@ def home():
                 # Determine the risk group
                 risk_group = "High risk" if risk_score >= optimal_threshold else "Low risk"
                 st.write(f"The patient is in the {risk_group} group.")
-                
-                # Add patient-specific prediction text
-                st.subheader('Patient-specific prediction')
+
                 
             except Exception as e:
                 st.error(f"Prediction failed: {e}")
