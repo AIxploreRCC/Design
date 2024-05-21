@@ -6,13 +6,48 @@ import plotly.graph_objects as go
 import os
 
 
-# Function to load custom CSS
-def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+r
+ColorMinMax = st.markdown('''
+<style>
+div.stSlider > div[data-baseweb="slider"] > div[data-testid="stTickBar"] > div {
+    background: rgb(1 1 1 / 0%);
+}
+</style>
+''', unsafe_allow_html=True)
 
-# Load the custom CSS file
-local_css("styles.css")
+Slider_Cursor = st.markdown('''
+<style>
+div.stSlider > div[data-baseweb="slider"] > div > div > div[role="slider"] {
+    background-color: rgb(1, 31, 63); /* Navy blue */
+    box-shadow: rgb(1 31 63 / 20%) 0px 0px 0px 0.2rem;
+}
+</style>
+''', unsafe_allow_html=True)
+
+Slider_Number = st.markdown('''
+<style>
+div.stSlider > div[data-baseweb="slider"] > div > div > div > div {
+    color: rgb(1, 31, 63); /* Navy blue */
+}
+</style>
+''', unsafe_allow_html=True)
+
+# Calculate the percentage for the slider's filled part
+NB = 50  # Change this value to represent the slider's filled percentage
+
+col = f'''
+<style>
+div.stSlider > div[data-baseweb="slider"] > div > div {{
+    background: linear-gradient(to right, rgb(1, 31, 63) 0%, 
+                                rgb(1, 31, 63) {NB}%, 
+                                rgba(151, 166, 195, 0.25) {NB}%, 
+                                rgba(151, 166, 195, 0.25) 100%);
+}}
+</style>
+'''
+
+ColorSlider = st.markdown(col, unsafe_allow_html=True)
+
 
 # Charger le modèle avec mise en cache
 @st.cache(allow_output_mutation=True)
