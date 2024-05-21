@@ -5,6 +5,15 @@ import numpy as np
 import plotly.graph_objects as go
 import os
 
+
+# Function to load custom CSS
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+# Load the custom CSS file
+local_css("styles.css")
+
 # Charger le modèle avec mise en cache
 @st.cache(allow_output_mutation=True)
 def load_model():
