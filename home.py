@@ -61,8 +61,10 @@ def home():
                 survival_df.columns = ['Survival Probability']
 
                 # Create a table for Disease Free Survival (DFS) Probability at 12-month intervals up to 60 months
-                dfs_probabilities = survival_df.iloc[[int(12 * i) for i in range(6)], :].reset_index(drop=True)
-                dfs_probabilities.index = [f"{12 * (i + 1)} months" for i in range(6)]
+                intervals = np.arange(12, 61, 12)
+                dfs_probabilities = survival_df.iloc[intervals - 1].reset_index(drop=True)
+                dfs_probabilities.index = [f"{month} months" for month in intervals]
+                dfs_probabilities = dfs_probabilities.T
                 st.table(dfs_probabilities)
 
                 # Plot survival function
