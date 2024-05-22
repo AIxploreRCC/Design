@@ -53,7 +53,13 @@ def contact():
     For any inquiries, please contact us at: support@radiomicsapp.com
     """)
 
-# Fonction radiomicss intégrée
+
+if choice == "Home":
+    homee()
+elif choice == "About":
+    about()
+elif choice == "Radiomics Score Generator":
+    # Fonction radiomicss intégrée
 def load_model():
     try:
         return load('random_survival_forest_model.joblib')
@@ -175,12 +181,5 @@ def radiomicss():
         rad_scores = np.array([simps([ch(tp) for tp in time_points], time_points) for ch in cumulative_hazards])
         normalized_rad_scores = scaler.transform(rad_scores.reshape(-1, 1)).flatten()
         st.write(f"Normalized RAD-Score for the uploaded patient: {normalized_rad_scores[0]:.5f}")
-
-if choice == "Home":
-    homee()
-elif choice == "About":
-    about()
-elif choice == "Radiomics Score Generator":
-    ()
 elif choice == "Contact":
     contact()
