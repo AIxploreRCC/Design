@@ -71,7 +71,7 @@ def load_model():
         raise
 
 rsf_model = load_model()
-scaler = load('/mnt/data/scaler.joblib')
+scaler = load('scaler.joblib')
 
 def setup_extractor():
     extractor = featureextractor.RadiomicsFeatureExtractor()
