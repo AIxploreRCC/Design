@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from lifelines import KaplanMeierFitter
-import joblib
+from joblib import load
 from homee import homee
 from radiomicss import radiomicss
 
