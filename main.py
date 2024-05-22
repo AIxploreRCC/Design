@@ -14,8 +14,6 @@ from joblib import load
 from radiomics import featureextractor
 from homee import homee
 from radiomics import featureextractor
-from radiomicss import radiomicss
-
 
 # URL des logos hébergés sur GitHub (lien brut)
 logo1_url = "https://raw.githubusercontent.com/AIxploreRCC/Design/main/logo%203.png"
