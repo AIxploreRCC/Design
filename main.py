@@ -1,3 +1,5 @@
+import os
+import sys
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -8,7 +10,6 @@ from radiomics import featureextractor
 from homee import homee
 import SimpleITK as sitk
 import tempfile
-import os
 from scipy.integrate import simps
 from sksurv.ensemble import RandomSurvivalForest
 from sklearn.preprocessing import MinMaxScaler
@@ -53,22 +54,16 @@ def contact():
     For any inquiries, please contact us at: support@radiomicsapp.com
     """)
 
-
-if choice == "Home":
-    homee()
-elif choice == "About":
-    about()
-elif choice == "Radiomics Score Generator":
-    # Fonction radiomicss intégrée
+# Fonction load_model intégrée
 def load_model():
     try:
-        return load('random_survival_forest_model.joblib')
+        return load('/mnt/data/random_survival_forest_model.joblib')
     except Exception as e:
         st.error(f"Failed to load the model: {str(e)}")
         raise
 
 rsf_model = load_model()
-scaler = load('scaler.joblib')
+scaler = load('/mnt/data/scaler.joblib')
 
 def setup_extractor():
     extractor = featureextractor.RadiomicsFeatureExtractor()
@@ -90,7 +85,11 @@ def display_images(ct_image, seg_image, slice_number):
     plt.axis('off')
     st.pyplot(plt)
 
-def radiomicss():
+if choice == "Home":
+    homee()
+elif choice == "About":
+    about()
+elif choice == "Radiomics Score Generator":
     features_of_interest = [
         'original_firstorder_10Percentile', 'original_firstorder_Mean', 
         'original_firstorder_Uniformity', 'original_glcm_ClusterTendency', 
@@ -175,11 +174,14 @@ def radiomicss():
         progress_bar.progress(100)
         st.write("Selected Features:", st.dataframe(selected_features_df))
 
+        st.session_state['selected_features_df'] = selected_features_df
+
     if 'selected_features_df' in st.session_state and st.button('Calculate RAD-Score for Uploaded Patient'):
         time_points = np.linspace(0, 60, 61)
         cumulative_hazards = rsf_model.predict_cumulative_hazard_function(st.session_state['selected_features_df'])
         rad_scores = np.array([simps([ch(tp) for tp in time_points], time_points) for ch in cumulative_hazards])
         normalized_rad_scores = scaler.transform(rad_scores.reshape(-1, 1)).flatten()
         st.write(f"Normalized RAD-Score for the uploaded patient: {normalized_rad_scores[0]:.5f}")
+
 elif choice == "Contact":
     contact()
