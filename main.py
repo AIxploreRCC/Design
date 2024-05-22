@@ -4,8 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from lifelines import KaplanMeierFitter
 import joblib
-import sys
-import os
 from homee import homee
 from radiomicss import radiomicss
 
