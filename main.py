@@ -42,7 +42,6 @@ def about():
     Adjust the input variables to see how the survival curve changes.
     """)
 
-
 def contact():
     st.header("Contact")
     st.write("""
