@@ -13,6 +13,7 @@ from lifelines import KaplanMeierFitter
 from joblib import load
 from radiomics import featureextractor
 from homee import homee
+from radiomics import featureextractor
 
 
 # URL des logos hébergés sur GitHub (lien brut)
