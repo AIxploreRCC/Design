@@ -175,7 +175,7 @@ def radiomicss():
         normalized_rad_scores = scaler.transform(rad_scores.reshape(-1, 1)).flatten()
         st.write(f"Normalized RAD-Score for the uploaded patient: {normalized_rad_scores[0]:.5f}")
 
-if choice == "Home":
+if choice == "Calculator":
     homee()
 elif choice == "About":
     about()
