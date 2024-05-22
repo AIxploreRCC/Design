@@ -56,13 +56,13 @@ def contact():
 # Fonction radiomicss intégrée
 def load_model():
     try:
-        return load('/mnt/data/random_survival_forest_model.joblib')
+        return load('random_survival_forest_model.joblib')
     except Exception as e:
         st.error(f"Failed to load the model: {str(e)}")
         raise
 
 rsf_model = load_model()
-scaler = load('/mnt/data/scaler.joblib')
+scaler = load('scaler.joblib')
 
 def setup_extractor():
     extractor = featureextractor.RadiomicsFeatureExtractor()
