@@ -180,5 +180,7 @@ if choice == "Home":
     homee()
 elif choice == "About":
     about()
+elif choice == "Radiomics Score Generator":
+    ()
 elif choice == "Contact":
     contact()
