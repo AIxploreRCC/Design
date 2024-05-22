@@ -37,7 +37,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # Barre de navigation
-menu = ["Home", "Radiomics Score Generator", "About", "Contact"]
+menu = ["Calculator", "Radiomics Score Generator", "About", "Contact"]
 choice = st.selectbox("Navigation", menu, key="main_navigation")
 
 def about():
