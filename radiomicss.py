@@ -63,14 +63,14 @@ columns_to_remove = [
     'Number of Features'
 ]
 
-def load_model():
+def load_model2():
     try:
         return load('random_survival_forest_model.joblib')
     except Exception as e:
         st.error(f"Failed to load the model: {str(e)}")
         raise
 
-rsf_model = load_model()
+rsf_model = load_model2()
 scaler = load('scaler.joblib')
 
 def setup_extractor():
