@@ -1,3 +1,10 @@
+import os
+import sys
+
+# Ajouter le répertoire actuel au chemin Python
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+
 import streamlit as st
 import pandas as pd
 import numpy as np
