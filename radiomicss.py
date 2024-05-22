@@ -65,7 +65,7 @@ columns_to_remove = [
 
 def load_model():
     try:
-        return load('/mnt/data/random_survival_forest_model.joblib')
+        return load('random_survival_forest_model.joblib')
     except Exception as e:
         st.error(f"Failed to load the model: {str(e)}")
         raise
