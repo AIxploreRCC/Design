@@ -7,7 +7,7 @@ import joblib
 import sys
 import os
 from homee import homee
-from radiomics_score_generator import radiomics_score_generator
+from radiomics import radiomics
 
 
 
