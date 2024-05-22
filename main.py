@@ -37,7 +37,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # Barre de navigation
-menu = ["Calculator", "Radiomics Score Generator", "About", "Contact"]
+menu = ["Home", "About", "Radiomics Score Generator", "Contact"]
 choice = st.selectbox("Navigation", menu, key="main_navigation")
 
 def about():
@@ -56,13 +56,13 @@ def contact():
 # Fonction radiomicss intégrée
 def load_model():
     try:
-        return load('random_survival_forest_model.joblib')
+        return load('/mnt/data/random_survival_forest_model.joblib')
     except Exception as e:
         st.error(f"Failed to load the model: {str(e)}")
         raise
 
 rsf_model = load_model()
-scaler = load('scaler.joblib')
+scaler = load('/mnt/data/scaler.joblib')
 
 def setup_extractor():
     extractor = featureextractor.RadiomicsFeatureExtractor()
@@ -162,7 +162,8 @@ def radiomicss():
         progress_bar.progress(50)
 
         # Further processing
-        features_df.drop(columns=columns_to_remove, inplace=True)
+        columns_to_remove_existing = [col for col in columns_to_remove if col in features_df.columns]
+        features_df.drop(columns=columns_to_remove_existing, inplace=True)
         selected_features_df = features_df[features_of_interest]
 
         progress_bar.progress(100)
@@ -175,7 +176,7 @@ def radiomicss():
         normalized_rad_scores = scaler.transform(rad_scores.reshape(-1, 1)).flatten()
         st.write(f"Normalized RAD-Score for the uploaded patient: {normalized_rad_scores[0]:.5f}")
 
-if choice == "Calculator":
+if choice == "Home":
     homee()
 elif choice == "About":
     about()
