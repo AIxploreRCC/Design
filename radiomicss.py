@@ -96,38 +96,3 @@ def display_images(ct_image, seg_image, slice_number):
 uploaded_ct = st.file_uploader("Upload CT Image", type=["nii", "nii.gz"])
 uploaded_seg = st.file_uploader("Upload Segmentation Mask", type=["nii", "nii.gz"])
 
-if uploaded_ct and uploaded_seg:
-    with tempfile.NamedTemporaryFile(delete=False, suffix='.nii.gz') as tmp_ct:
-        tmp_ct.write(uploaded_ct.getvalue())
-        tmp_ct.seek(0)
-        ct_image = sitk.ReadImage(tmp_ct.name)
-
-    with tempfile.NamedTemporaryFile(delete=False, suffix='.nii.gz') as tmp_seg:
-        tmp_seg.write(uploaded_seg.getvalue())
-        tmp_seg.seek(0)
-        seg_image = sitk.ReadImage(tmp_seg.name)
-
-    slice_number = st.slider('Select Slice', 0, ct_image.GetSize()[2] - 1, ct_image.GetSize()[2] // 2)
-    display_images(ct_image, seg_image, slice_number)
-
-if st.button('Start Feature Extraction'):
-    progress_bar = st.progress(0)
-    extractor = setup_extractor()
-    feature_extraction_result = extractor.execute(ct_image, seg_image)
-    features_df = pd.DataFrame([feature_extraction_result])
-
-    progress_bar.progress(50)
-
-    # Further processing
-    features_df.drop(columns=columns_to_remove, inplace=True)
-    selected_features_df = features_df[features_of_interest]
-
-    progress_bar.progress(100)
-    st.write("Selected Features:", st.dataframe(selected_features_df))
-
-if 'selected_features_df' in st.session_state and st.button('Calculate RAD-Score for Uploaded Patient'):
-    time_points = np.linspace(0, 60, 61)
-    cumulative_hazards = rsf_model.predict_cumulative_hazard_function(st.session_state['selected_features_df'])
-    rad_scores = np.array([simps([ch(tp) for tp in time_points], time_points) for ch in cumulative_hazards])
-    normalized_rad_scores = scaler.transform(rad_scores.reshape(-1, 1)).flatten()
-    st.write(f"Normalized RAD-Score for the uploaded patient: {normalized_rad_scores[0]:.5f}")
