@@ -228,6 +228,5 @@ if 'selected_features_df' in st.session_state and st.button('Calculate RAD-Score
         st.write(f"Normalized RAD-Score for the uploaded patient: {normalized_rad_scores[0]:.5f}")
     except Exception as e:
         st.error(f"Error during RAD-Score calculation: {str(e)}")
-
 elif choice == "Contact":
     contact()
