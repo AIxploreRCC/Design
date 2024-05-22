@@ -7,7 +7,7 @@ import joblib
 import sys
 import os
 from homee import homee
-from radiomics import radiomics
+from radiomicss import radiomicss
 
 
 
