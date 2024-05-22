@@ -54,6 +54,6 @@ if choice == "Home":
 elif choice == "About":
     about()
 elif choice == "Radiomics Score Generator":
-    radiomics_score_generator()
+    radiomicss()
 elif choice == "Contact":
     contact()
