@@ -6,7 +6,8 @@ from lifelines import KaplanMeierFitter
 import joblib
 from homee import homee
 
-
+# Configurer la page pour utiliser toute la largeur
+st.set_page_config(layout="wide")
 
 # URL des logos hébergés sur GitHub (lien brut)
 logo1_url = "https://raw.githubusercontent.com/AIxploreRCC/Design/main/logo%203.png"
