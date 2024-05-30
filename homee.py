@@ -55,7 +55,7 @@ def plot_kaplan_meier(data):
 
 def homee():
     st.write("""
-    CC Clinical Radiomics Algorithm App is an advanced AI algorithm designed to predict post-operative oncological outcomes 
+    RCC Clinical Radiomics Algorithm App is an advanced AI algorithm designed to predict post-operative oncological outcomes 
     in patients with clear renal cell carcinoma. This tool is designed for patients at intermediate or high risk of recurrence, specifically 
     those meeting the eligibility criteria of the KEYNOTE 564 trial, including stages pT2 with G4 or sarcomatoid differentiation, pT3, pT4, or pN1.
     """)
