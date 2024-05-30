@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from lifelines import KaplanMeierFitter
 from joblib import load
 from radiomics import featureextractor
-from homee import homee
+
 import SimpleITK as sitk
 import tempfile
 from scipy.integrate import simps
