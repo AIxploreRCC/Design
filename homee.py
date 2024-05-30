@@ -61,6 +61,12 @@ def homee():
     """)
 
     # Dictionnaires de mapping pour les sélecteurs
+    Hb_mapping = {
+        "No": 0,
+        "Yes": 1
+    }    
+        
+    
     N_mapping = {
         "N0": 0,
         "N1": 1,
@@ -77,7 +83,7 @@ def homee():
     col1, col2 = st.columns(2)
 
     with col1:
-        hb = st.selectbox("Hemoglobin < lower limit of normal", options=[0, 1])
+        hb = st.selectbox("Hemoglobin < lower limit of normal", options=list(Hb_mapping.keys()))
         N_label = st.selectbox("Pathological Lymph Node Involvement", options=list(N_mapping.keys()))
         rad = st.slider("Radiomics Signature", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
         Thrombus_label = st.selectbox("Vascular Invasion", options=list(Thrombus_mapping.keys()))
