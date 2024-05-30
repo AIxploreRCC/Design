@@ -6,6 +6,7 @@ from joblib import load
 from lifelines import KaplanMeierFitter
 import os
 
+
 # Configurer la page pour utiliser toute la largeur
 st.set_page_config(layout="wide")
 
