@@ -61,12 +61,6 @@ def homee():
     """)
 
     # Dictionnaires de mapping pour les sélecteurs
-    Hb_mapping = {
-        "No": 0,
-        "Yes": 1
-    }    
-    
-        
     N_mapping = {
         "N0": 0,
         "N1": 1,
