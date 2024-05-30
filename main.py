@@ -32,7 +32,7 @@ st.markdown(f"""
             <img src="{logo1_url}" alt="Logo 1" style="width: 100px; height: 80px;">
             <img src="{logo2_url}" alt="Logo 2" style="width: 60px; height: 60px; margin-top: 10px;">
         </div>
-        <h1 style="margin: 0;">RenalCheck — RCC Clinical Radiomics Algorithm App</h1>
+        <h1 style="margin: 0;">RCC Clinical Radiomics Algorithm App</h1>
     </div>
     <hr style="border: 1px solid #ccc;">
 """, unsafe_allow_html=True)
