@@ -65,6 +65,7 @@ def homee():
         "No": 0,
         "Yes": 1
     }    
+    
         
     N_mapping = {
         "N0": 0,
