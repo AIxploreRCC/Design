@@ -46,6 +46,13 @@ def about():
     st.write("""
     This application predicts survival using radiomics and clinical data.
     Adjust the input variables to see how the survival curve changes.
+    
+    RenalCheck — RCC Clinical Radiomics Algorithm App is designed for academic research. It allows researchers to explore the potential of radiomics in predicting disease recurrence after kidney cancer surgery. The application leverages advanced machine learning techniques and integrates both radiomic and clinical data to provide insights into patient outcomes.
+    
+    Key Features:
+    - Upload CT images and segmentation masks to extract radiomic features.
+    - Calculate and display radiomic scores.
+    - Visualize survival curves based on input variables.
     """)
 
 def contact():
