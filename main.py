@@ -102,8 +102,7 @@ def display_images(ct_image, seg_image, slice_number):
 
 if choice == "Home":
     homee()
-elif choice == "About":
-    about()
+
 elif choice == "Radiomics Score Generator":
     uploaded_ct = st.file_uploader("Upload CT Image", type=["nii", "nii.gz"])
     uploaded_seg = st.file_uploader("Upload Segmentation Mask", type=["nii", "nii.gz"])
@@ -166,6 +165,10 @@ elif choice == "Radiomics Score Generator":
             st.write(f"Normalized RAD-Score for the uploaded patient: {normalized_rad_scores[0]:.5f}")
         except Exception as e:
             st.error(f"Error during RAD-Score calculation: {str(e)}")
+
+elif choice == "About":
+    about()
+    
 elif choice == "Contact":
     contact()
 
