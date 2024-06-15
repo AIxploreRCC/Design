@@ -100,7 +100,7 @@ def display_images(ct_image, seg_image, slice_number):
     plt.axis('off')
     st.pyplot(plt)
 
-if choice == "Home":
+if choice == "Algorithm App":
     homee()
 
 elif choice == "Radiomics Score Generator":
