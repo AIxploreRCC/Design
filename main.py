@@ -29,7 +29,7 @@ local_css("styles2.css")
 st.markdown(f"""
     <div style="display: flex; align-items: center; justify-content: center;">
         <div style="display: flex; flex-direction: column; align-items: center; margin-right: 20px;">
-            <img src="{logo1_url}" alt="Logo 1" style="width: 100px; height: 80px;">
+            <img src="{logo1_url}" alt="Logo 1" style="width: 120px; height: 90px;">
             <img src="{logo2_url}" alt="Logo 2" style="width: 60px; height: 60px; margin-top: 10px;">
         </div>
         <h1 style="margin: 0;">RCC Clinical Radiomics Algorithm App</h1>
