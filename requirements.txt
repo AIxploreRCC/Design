@@ -1,7 +1,7 @@
+numpy
 pyradiomics
 streamlit
 pandas
-numpy
 matplotlib
 lifelines
 joblib
@@ -12,3 +12,4 @@ nibabel
 scikit-learn
 scipy
 osqp
+autograd
