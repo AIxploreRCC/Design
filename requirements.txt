@@ -1,9 +1,9 @@
-numpy
+numpy==1.21.0
 
 streamlit
 pandas
 matplotlib
-lifelines
+lifelines==0.27.0
 joblib
 scikit-survival
 plotly
@@ -12,3 +12,4 @@ nibabel
 scikit-learn
 scipy
 osqp
+autograd==1.3
