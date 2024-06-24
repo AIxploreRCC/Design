@@ -1,5 +1,5 @@
 numpy
-pyradiomics
+
 streamlit
 pandas
 matplotlib
@@ -12,4 +12,3 @@ nibabel
 scikit-learn
 scipy
 osqp
-autograd==1.3
