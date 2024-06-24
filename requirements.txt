@@ -12,4 +12,4 @@ nibabel
 scikit-learn
 scipy
 osqp
-autograd
+autograd==1.3
