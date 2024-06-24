@@ -3,7 +3,7 @@ numpy==1.26.4
 streamlit
 pandas
 matplotlib
-lifelines==0.27.0
+lifelines
 joblib
 scikit-survival
 plotly
@@ -12,4 +12,4 @@ nibabel
 scikit-learn
 scipy
 osqp
-autograd==1.3
+
