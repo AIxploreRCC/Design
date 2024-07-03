@@ -14,6 +14,8 @@ from scipy.integrate import simps
 from sksurv.ensemble import RandomSurvivalForest
 from sklearn.preprocessing import MinMaxScaler
 
+import streamlit.components.v1 as components
+
 # Add Google Analytics tracking code
 tracking_code = """
 <!-- Google tag (gtag.js) -->
