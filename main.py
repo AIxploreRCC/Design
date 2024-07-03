@@ -14,6 +14,21 @@ from scipy.integrate import simps
 from sksurv.ensemble import RandomSurvivalForest
 from sklearn.preprocessing import MinMaxScaler
 
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-66WEQG03ZQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-66WEQG03ZQ');
+</script>
+
+
+
+st.components.v1.html(tracking_code, height=0)
+
 # URL des logos hébergés sur GitHub (lien brut)
 logo1_url = "https://raw.githubusercontent.com/AIxploreRCC/Design/main/logo%203.png"
 logo2_url = "https://raw.githubusercontent.com/AIxploreRCC/Design/main/images.png"
