@@ -14,7 +14,8 @@ from scipy.integrate import simps
 from sksurv.ensemble import RandomSurvivalForest
 from sklearn.preprocessing import MinMaxScaler
 
-
+# Add Google Analytics tracking code
+tracking_code = """
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-66WEQG03ZQ"></script>
 <script>
@@ -25,7 +26,7 @@ from sklearn.preprocessing import MinMaxScaler
   gtag('config', 'G-66WEQG03ZQ');
 </script>
 
-
+"""
 
 st.components.v1.html(tracking_code, height=0)
 
