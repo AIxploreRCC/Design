@@ -153,7 +153,7 @@ elif choice == "Radiomics Score Generator":
         display_images(ct_image, seg_image, slice_number)
 
     if st.button('Start Feature Extraction'):
-      with st.spinner('Extraction des caractéristiques en cours...'):
+      with st.spinner('Feature extraction in progress...'):
         try:
             extractor = setup_extractor()
             feature_extraction_result = extractor.execute(ct_image, seg_image)
