@@ -13,6 +13,7 @@ import tempfile
 from scipy.integrate import simps
 from sksurv.ensemble import RandomSurvivalForest
 from sklearn.preprocessing import MinMaxScaler
+import time
 
 import streamlit.components.v1 as components
 
@@ -152,6 +153,7 @@ elif choice == "Radiomics Score Generator":
         display_images(ct_image, seg_image, slice_number)
 
     if st.button('Start Feature Extraction'):
+      with st.spinner('Extraction des caractéristiques en cours...'):
         try:
             extractor = setup_extractor()
             feature_extraction_result = extractor.execute(ct_image, seg_image)
