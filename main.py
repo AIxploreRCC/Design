@@ -17,9 +17,8 @@ import time
 
 import streamlit.components.v1 as components
 
-# Add Google Analytics tracking code
+# Google Analytics tracking code
 tracking_code = """
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-66WEQG03ZQ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -28,10 +27,9 @@ tracking_code = """
 
   gtag('config', 'G-66WEQG03ZQ');
 </script>
-
 """
 
-st.components.v1.html(tracking_code, height=0)
+st.markdown(tracking_code, unsafe_allow_html=True)
 
 # URL des logos hébergés sur GitHub (lien brut)
 logo1_url = "https://raw.githubusercontent.com/AIxploreRCC/Design/main/logo%203.png"
